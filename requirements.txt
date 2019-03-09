@@ -1,0 +1,5 @@
+PyYAML
+graphics.py
+numpy
+jupyter
+pygame
