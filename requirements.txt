@@ -3,3 +3,4 @@ graphics.py
 numpy
 jupyter
 pygame
+jupyterlab
