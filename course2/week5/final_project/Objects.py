@@ -54,11 +54,11 @@ class Creature(AbstractObject):
 class Hero(Creature):
 
     def __init__(self, stats, icon):
-        pos = [1, 1]
+        position = [1, 1]
         self.level = 1
         self.exp = 0
         self.gold = 0
-        super().__init__(icon, stats, pos)
+        super().__init__(icon, stats, position)
 
     def level_up(self):
         while self.exp >= 100 * (2 ** (self.level - 1)):
@@ -69,26 +69,18 @@ class Hero(Creature):
             self.calc_max_HP()
             self.hp = self.max_hp
 
-class Eneme(Creature):  # fixme to finish
 
-    def __init__(self, stats, icon):
-        pos = [1, 1]
-        self.level = 1
-        self.exp = 0
-        self.gold = 0
-        super().__init__(icon, stats, pos)
+class Enemy(Creature, Interactive):  # fixme to finish
 
-    def level_up(self):
-        while self.exp >= 100 * (2 ** (self.level - 1)):
-            yield "level up!"
-            self.level += 1
-            self.stats["strength"] += 2
-            self.stats["endurance"] += 2
-            self.calc_max_HP()
-            self.hp = self.max_hp
+    def __init__(self, icon, stats, xp, position):
+        self.xp = xp
+        super().__init__(icon, stats, position)
+
+    def interact(self, engine, hero):
+        self.action(engine, hero)
+
 
 class Effect(Hero):
-
     def __init__(self, base):
         self.base = base
         self.stats = self.base.stats.copy()
