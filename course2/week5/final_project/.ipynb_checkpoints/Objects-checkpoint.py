@@ -16,7 +16,7 @@ class AbstractObject(ABC):
     def __init__(self):
         pass
 
-    def draw(self, display):  # FIXME maybe to finish (come back after ScreenEngine)
+    def draw(self, display):
         pass
 
 
@@ -54,11 +54,11 @@ class Creature(AbstractObject):
 class Hero(Creature):
 
     def __init__(self, stats, icon):
-        position = [1, 1]
+        pos = [1, 1]
         self.level = 1
         self.exp = 0
         self.gold = 0
-        super().__init__(icon, stats, position)
+        super().__init__(icon, stats, pos)
 
     def level_up(self):
         while self.exp >= 100 * (2 ** (self.level - 1)):
@@ -69,24 +69,26 @@ class Hero(Creature):
             self.calc_max_HP()
             self.hp = self.max_hp
 
+class Eneme(Creature):  # fixme to finish
 
-class Enemy(Creature, Interactive):
+    def __init__(self, stats, icon):
+        pos = [1, 1]
+        self.level = 1
+        self.exp = 0
+        self.gold = 0
+        super().__init__(icon, stats, pos)
 
-    def __init__(self, icon, stats, xp, position):
-        self.xp = xp
-        super().__init__(icon, stats, position)
-
-    def interact(self, engine, hero):
-        for stat in hero.stats:
-            min_stat = min(hero.stats[stat], self.stats[stat])
-            hero.stats[stat] -= min_stat
-            self.stats[stat] -= min_stat
-            self.stats[stat] += self.xp // 2  # add the using xp
-
-        engine.notify("Interaction with the enemy happened")
-
+    def level_up(self):
+        while self.exp >= 100 * (2 ** (self.level - 1)):
+            yield "level up!"
+            self.level += 1
+            self.stats["strength"] += 2
+            self.stats["endurance"] += 2
+            self.calc_max_HP()
+            self.hp = self.max_hp
 
 class Effect(Hero):
+
     def __init__(self, base):
         self.base = base
         self.stats = self.base.stats.copy()
@@ -149,20 +151,5 @@ class Effect(Hero):
         pass
 
 
-class Berserk(Effect):
-    def apply_effect(self):
-        for stat in ["strength", "endurance", "luck"]:
-            self.stats[stat] += 7
-        self.stats["intelligence"] -= 3
-
-
-class Blessing(Effect):
-    def apply_effect(self):
-        for stat in self.stats:
-            self.stats[stat] += 2
-
-
-class Weakness(Effect):
-    def apply_effect(self):
-        for stat in ["strength", "endurance"]:
-            self.stats[stat] -= 7
+# FIXME
+# add classes
