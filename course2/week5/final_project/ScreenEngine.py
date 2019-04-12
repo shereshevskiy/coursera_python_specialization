@@ -97,7 +97,7 @@ class ProgressBar(ScreenHandle):
 
     def connect_engine(self, engine):
         # FIXME save engine and send it to next in chain
-        self.game_engine = engine
+        self.engine = engine
         if self.successor is not None:
             self.successor.connect_engine(engine)
 
@@ -209,7 +209,7 @@ class HelpWindow(ScreenHandle):
 
     def connect_engine(self, engine):
         # FIXME save engine and send it to next in chain
-        self.game_engine = engine
+        self.engine = engine
         if self.successor is not None:
             self.successor.connect_engine(engine)
 
