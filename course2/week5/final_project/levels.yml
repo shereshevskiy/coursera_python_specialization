@@ -1,6 +1,8 @@
 levels:
-  - !empty_map {}
+  - !empty_map  # without walls
+    stairs: 1
   - !special_map
+    stairs: 1
     rat: 5
   - !special_map
     rat: 10
@@ -8,5 +10,6 @@ levels:
   - !special_map
     rat: 10
     knight: 10
+    remove: 3
   - !random_map {}
   - !end_map {}
