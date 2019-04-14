@@ -9,3 +9,4 @@ levels:
     rat: 10
     knight: 10
   - !random_map {}
+  - !end_map {}
