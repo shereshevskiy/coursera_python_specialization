@@ -255,7 +255,7 @@ class EmptyMap(MapFactory):  # fixme_ (my): corrected
             return self.objects
 
 
-class SpecialMap(MapFactory):  # fixme (my): correct
+class SpecialMap(MapFactory):
     yaml_tag = "!special_map"
 
     class Map:

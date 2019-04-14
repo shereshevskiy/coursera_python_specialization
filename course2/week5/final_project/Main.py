@@ -9,8 +9,8 @@ import Service
 SCREEN_DIM = (800, 600)
 
 pygame.init()
-gameDisplay = pygame.display.set_mode(SCREEN_DIM)
-pygame.display.set_caption("MyRPG")
+gameDisplay = pygame.display.set_mode(SCREEN_DIM)  # can use pygame.RESIZABLE here, e.g.
+pygame.display.set_caption("MyHero")
 KEYBOARD_CONTROL = True
 
 if not KEYBOARD_CONTROL:
@@ -56,6 +56,7 @@ def create_game(sprite_size, is_new):
 
 
 size = 60
+min_size = 16
 create_game(size, True)
 
 while engine.working:
@@ -68,10 +69,10 @@ while engine.working:
                 if event.key == pygame.K_h:
                     engine.show_help = not engine.show_help
                 if event.key == pygame.K_KP_PLUS:
-                    size = size + 1
+                    size = max(min_size, size + 1)
                     create_game(size, False)
                 if event.key == pygame.K_KP_MINUS:
-                    size = size - 1
+                    size = max(min_size, size - 1)
                     create_game(size, False)
                 if event.key == pygame.K_r:
                     create_game(size, True)

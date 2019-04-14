@@ -14,10 +14,16 @@ def create_sprite(img, sprite_size):
 class AbstractObject(ABC):
 
     def __init__(self):
-        pass
+        self.sprite = None
+        self.position = None
+        self.min_x = 0
+        self.min_y = 0
 
-    def draw(self, display):  # FIXME maybe to finish (come back after ScreenEngine)
-        pass
+    def draw(self, display):
+        sprite_size = self.sprite.get_size()[0]
+        display.blit(self.sprite, [(self.position[0] - self.min_x) * sprite_size,
+                                   (self.position[1] - self.min_y) * sprite_size])
+
 
 
 class Interactive(ABC):
@@ -51,6 +57,7 @@ class Creature(AbstractObject):
         self.max_hp = 5 + self.stats["endurance"] * 2
 
 
+
 class Hero(Creature):
 
     def __init__(self, stats, icon):
@@ -81,7 +88,7 @@ class Enemy(Creature, Interactive):
             min_stat = min(hero.stats[stat], self.stats[stat])
             hero.stats[stat] -= min_stat
             self.stats[stat] -= min_stat
-            self.stats[stat] += self.xp // 2  # add the using xp
+            # self.stats[stat] += self.xp // 2  # add the using xp
 
         engine.notify("Interaction with the enemy happened")
 
