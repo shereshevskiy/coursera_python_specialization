@@ -1,6 +1,5 @@
 levels:
-  - !empty_map  # without walls, one exit only.
-                # Can add something else to the list where now there is the item "stairs" only
+  - !empty_map  # without walls, one exit (stairs) only
     stairs: 1
   - !special_map  # there are the random walls, there are the items only which marked here below
     stairs: 1
