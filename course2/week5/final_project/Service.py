@@ -340,6 +340,7 @@ class SpecialMap(MapFactory):
 
         def __init__(self):
             self.objects = []
+            self.config = None  # will be changed from outside after the creation of the class object
 
         def get_objects(self, _map):
             config = self.config

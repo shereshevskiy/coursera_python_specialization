@@ -203,6 +203,7 @@ class InfoWindow(ScreenHandle):
 
     def connect_engine(self, engine):
         # FIXME set this class as Observer to engine and send it to next in chain
+        engine.subscribe(self)
         if self.successor is not None:
             self.successor.connect_engine(engine)
 
