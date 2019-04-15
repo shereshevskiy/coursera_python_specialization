@@ -1,7 +1,8 @@
 levels:
-  - !empty_map  # without walls
+  - !empty_map  # without walls, one exit only.
+                # Can add something else to the list where now there is the item "stairs" only
     stairs: 1
-  - !special_map
+  - !special_map  # there are the random walls, there are the items only which marked here below
     stairs: 1
     rat: 5
     chest: 2
@@ -14,6 +15,13 @@ levels:
     rat: 10
     knight: 10
     remove: 3
+    chest: 3
+  - !my_special_map  # my map
+    stairs: 1
+    warlock: 3
+    healer: 3
+    rat: 9
+    knight: 4
     chest: 3
   - !random_map {}
   - !end_map {}

@@ -25,7 +25,19 @@ ally:
     action: restore_hp
     min-count: 0
     max-count: 3
+  healer:
+    sprite: [healer.png]
+    action: apply_remove_evil_eye
+    min-count: 1
+    max-count: 3
 enemies:
+  warlock:
+    sprite: [warlock.png]
+    strength: 12
+    endurance: 10
+    intelligence: 5
+    luck: 5
+    experience: 150
   rat:
     sprite: [rat.png]
     strength: 2

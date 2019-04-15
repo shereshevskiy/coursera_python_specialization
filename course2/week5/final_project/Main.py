@@ -93,7 +93,7 @@ while engine.working:
                         iteration += 1
                 else:
                     if event.key == pygame.K_RETURN:
-                        create_game()
+                        create_game(size, True)
     else:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -112,7 +112,7 @@ while engine.working:
             reward = engine.score - prev_score
             print(reward)
         else:
-            create_game()
+            create_game(size, True)
 
     gameDisplay.blit(drawer, (0, 0))
     drawer.draw(gameDisplay)

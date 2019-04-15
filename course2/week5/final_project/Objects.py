@@ -41,7 +41,16 @@ class Ally(AbstractObject, Interactive):
         self.position = position
 
     def interact(self, engine, hero):
+        old_stats = hero.stats
+
         self.action(engine, hero)
+
+        engine.notify("The interaction with Ally")
+        engine.notify("   The changes in status:")
+        for stat in hero.stats:
+            engine.notify(f"{stat}: from {old_stats[stat]} to {engine.hero.stats[stat]}")
+        engine.notify("****************")
+
 
 
 class Creature(AbstractObject):
@@ -84,13 +93,18 @@ class Enemy(Creature, Interactive):
         super().__init__(icon, stats, position)
 
     def interact(self, engine, hero):
+        engine.notify("The interaction with Enemy")
+        engine.notify("   The changes in status:")
         for stat in hero.stats:
-            min_stat = min(hero.stats[stat], self.stats[stat])
-            hero.stats[stat] -= min_stat
-            self.stats[stat] -= min_stat
-            # self.stats[stat] += self.xp // 2  # add the using xp
+            old_stat = hero.stats[stat]
+            if hero.stats[stat] > self.stats[stat]:
+                hero.stats[stat] += self.stats[stat] * (self.xp // 100 + 1)
+            else:
+                hero.stats[stat] = 0
 
-        engine.notify("Interaction with the enemy happened")
+            engine.notify(f"{stat}: from {old_stat} to {hero.stats[stat]}")
+        engine.notify("****************")
+        hero.level_up()
 
 
 class Effect(Hero):
@@ -161,15 +175,24 @@ class Berserk(Effect):
         for stat in ["strength", "endurance", "luck"]:
             self.stats[stat] += 7
         self.stats["intelligence"] -= 3
+        self.level_up()
 
 
 class Blessing(Effect):
     def apply_effect(self):
         for stat in self.stats:
             self.stats[stat] += 2
+        self.level_up()
 
 
 class Weakness(Effect):
     def apply_effect(self):
         for stat in ["strength", "endurance"]:
             self.stats[stat] -= 7
+        self.level_up()
+
+
+class RemoveEvilEye(Effect):
+    def apply_effect(self):
+        self.stats["luck"] += 10
+        self.level_up()

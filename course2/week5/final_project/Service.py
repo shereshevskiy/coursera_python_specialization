@@ -36,6 +36,11 @@ def restore_hp(engine, hero):
     engine.notify("HP restored")
 
 
+def apply_remove_evil_eye(engine, hero):
+    engine.hero = Objects.RemoveEvilEye(hero)
+    engine.notify("RemoveEvilEye applied")
+
+
 def apply_blessing(engine, hero):
     if hero.gold >= int(20 * 1.5**engine.level) - 2 * hero.stats["intelligence"]:
         engine.score += 0.2
@@ -250,6 +255,7 @@ class EmptyMap(MapFactory):  # fixme_ (my): corrected
 
         def __init__(self):
             self.objects = []
+            self.config = None  # will be changed from outside after the creation of the class object
 
         def get_objects(self, _map):
             config = self.config
@@ -410,6 +416,99 @@ class SpecialMap(MapFactory):
 
             return self.objects
 
+
+class MySpecialMap(MapFactory):
+    yaml_tag = "!my_special_map"
+
+    class Map:
+
+        def __init__(self):
+            self.Map = [[0 for _ in range(41)] for _ in range(41)]
+            for i in range(41):
+                for j in range(41):
+                    if i == 0 or j == 0 or i == 40 or j == 40:
+                        self.Map[j][i] = wall
+                    else:
+                        self.Map[j][i] = [wall, wall, floor2, floor3, floor1,
+                                          floor2, floor3, floor1, floor2][random.randint(0, 8)]
+
+        def get_map(self):
+            return self.Map
+
+    class Objects:
+
+        def __init__(self):
+            self.objects = []
+            self.config = None  # will be changed from outside after the creation of the class object
+
+        def get_objects(self, _map):
+            config = self.config
+
+            # for obj_name in object_list_prob['objects']:
+            for obj_name in set(object_list_prob['objects']) & set(config.keys()):
+                prop = object_list_prob['objects'][obj_name]
+                for i in range(config[obj_name]):
+                    coord = (random.randint(1, 39), random.randint(1, 39))
+                    intersect = True
+                    while intersect:
+                        intersect = False
+                        if _map[coord[1]][coord[0]] == wall:
+                            intersect = True
+                            coord = (random.randint(1, 39),
+                                     random.randint(1, 39))
+                            continue
+                        for obj in self.objects:
+                            if coord == obj.position or coord == (1, 1):
+                                intersect = True
+                                coord = (random.randint(1, 39),
+                                         random.randint(1, 39))
+
+                    self.objects.append(Objects.Ally(
+                        prop['sprite'], prop['action'], coord))
+
+            for obj_name in set(object_list_prob['ally']) & set(config.keys()):
+                prop = object_list_prob['ally'][obj_name]
+                for i in range(config[obj_name]):
+                    coord = (random.randint(1, 39), random.randint(1, 39))
+                    intersect = True
+                    while intersect:
+                        intersect = False
+                        if _map[coord[1]][coord[0]] == wall:
+                            intersect = True
+                            coord = (random.randint(1, 39),
+                                     random.randint(1, 39))
+                            continue
+                        for obj in self.objects:
+                            if coord == obj.position or coord == (1, 1):
+                                intersect = True
+                                coord = (random.randint(1, 39),
+                                         random.randint(1, 39))
+                    self.objects.append(Objects.Ally(
+                        prop['sprite'], prop['action'], coord))
+
+            for obj_name in set(object_list_prob['enemies']) & set(config.keys()):
+                prop = object_list_prob['enemies'][obj_name]
+                for i in range(config[obj_name]):
+                    coord = (random.randint(1, 30), random.randint(1, 22))
+                    intersect = True
+                    while intersect:
+                        intersect = False
+                        if _map[coord[1]][coord[0]] == wall:
+                            intersect = True
+                            coord = (random.randint(1, 39),
+                                     random.randint(1, 39))
+                            continue
+                        for obj in self.objects:
+                            if coord == obj.position or coord == (1, 1):
+                                intersect = True
+                                coord = (random.randint(1, 39),
+                                         random.randint(1, 39))
+
+                    self.objects.append(Objects.Enemy(
+                        prop['sprite'], prop, prop['experience'], coord))
+
+            return self.objects
+
 wall = [0]
 floor1 = [0]
 floor2 = [0]
@@ -439,7 +538,8 @@ def service_init(sprite_size, full=True):
                            'add_gold': add_gold,
                            'apply_blessing': apply_blessing,
                            'remove_effect': remove_effect,
-                           'restore_hp': restore_hp}
+                           'restore_hp': restore_hp,
+                           'apply_remove_evil_eye': apply_remove_evil_eye}
 
     for obj in object_list_prob['objects']:
         prop = object_list_prob['objects'][obj]
