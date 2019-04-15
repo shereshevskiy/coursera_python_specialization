@@ -106,7 +106,7 @@ class  GameSurface(ScreenHandle):
         self.draw_hero()
 
         # draw next surface in chain
-        return super().draw(canvas)
+        super().draw(canvas)
 
 
 class ProgressBar(ScreenHandle):
@@ -173,8 +173,8 @@ class ProgressBar(ScreenHandle):
         self.blit(font.render(f'{self.engine.score:.4f}', True, colors["black"]),
                   (550, 70))
 
-    # draw next surface in chain
-        return super().draw(canvas)
+        # draw next surface in chain
+        super().draw(canvas)
 
 
 class InfoWindow(ScreenHandle):
@@ -197,9 +197,9 @@ class InfoWindow(ScreenHandle):
             self.blit(font.render(text, True, colors["black"]),
                       (5, 20 + 18 * i))
 
-    # FIXME
-    # draw next surface in chain
-        return super().draw(canvas)
+        # FIXME
+        # draw next surface in chain
+        super().draw(canvas)
 
     def connect_engine(self, engine):
         # FIXME set this class as Observer to engine and send it to next in chain
@@ -223,7 +223,9 @@ class HelpWindow(ScreenHandle):
         self.data.append(["Num+", "Zoom +"])
         self.data.append(["Num-", "Zoom -"])
         self.data.append([" R ", "Restart Game"])
-    # FIXME You can add some help information
+        # FIXME You can add some help information
+        self.data.append(["", ""])
+        self.data.append(["", "                   ***   Good Luck!!!   ***"])
 
     def connect_engine(self, engine):
         # FIXME save engine and send it to next in chain
@@ -247,8 +249,6 @@ class HelpWindow(ScreenHandle):
                           (50, 50 + 30 * i))
                 self.blit(font2.render(text[1], True, ((128, 128, 255))),
                           (150, 50 + 30 * i))
-    # FIXME
-    # draw next surface in chain
-        if self.successor is not None:
-            canvas.blit(self.successor, self.next_coord)
-            self.successor.draw(canvas)
+        # FIXME
+        # draw next surface in chain
+        super().draw(canvas)
