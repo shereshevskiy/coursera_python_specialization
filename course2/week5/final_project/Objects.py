@@ -184,24 +184,21 @@ class Berserk(Effect):
         for stat in ["strength", "endurance", "luck"]:
             self.stats[stat] += 7
         self.stats["intelligence"] -= 3
-        self.level_up()
 
 
 class Blessing(Effect):
     def apply_effect(self):
         for stat in self.stats:
             self.stats[stat] += 2
-        self.level_up()
 
 
 class Weakness(Effect):
     def apply_effect(self):
         for stat in ["strength", "endurance"]:
             self.stats[stat] -= 7
-        self.level_up()
 
 
 class RemoveEvilEye(Effect):
     def apply_effect(self):
         self.stats["luck"] += 10
-        self.level_up()
+
