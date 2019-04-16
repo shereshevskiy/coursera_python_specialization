@@ -80,7 +80,7 @@ class Hero(Creature):
 
     def level_up(self):
         while self.exp >= 100 * (2 ** (self.level - 1)):
-            # yield "level up!"
+            yield "level up!"
             self.level += 1
             self.stats["strength"] += 2
             self.stats["endurance"] += 2
@@ -113,7 +113,9 @@ class Enemy(Creature, Interactive):
         for stat in hero.stats:
             engine.notify(f"{stat}: from {old_stat[stat]} to {hero.stats[stat]}")
         engine.notify("****************")
-        hero.level_up()
+        level_up = hero.level_up()
+        for message in level_up:
+            engine.notify(message)
 
 
 class Effect(Hero):
