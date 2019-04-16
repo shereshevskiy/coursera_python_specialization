@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+
+import numpy as np
 import pygame
 import random
 
@@ -93,16 +95,26 @@ class Enemy(Creature, Interactive):
         super().__init__(icon, stats, position)
 
     def interact(self, engine, hero):
+
+        def sigma_func(x):
+            return 1 / (1 + np.exp(-x))
+
         engine.notify("The interaction with Enemy")
         engine.notify("   The changes in status:")
-        for stat in hero.stats:
-            old_stat = hero.stats[stat]
-            if hero.stats[stat] > self.stats[stat]:
-                hero.stats[stat] += self.stats[stat] * (self.xp // 100 + 1)
-            else:
-                hero.stats[stat] = 0
+        old_stat = hero.stats.copy()
 
-            engine.notify(f"{stat}: from {old_stat} to {hero.stats[stat]}")
+        hero_stats_sum = np.sum(list(hero.stats.values()))
+        enemy_stats_sum = np.sum([self.stats[stat] for stat in hero.stats])
+        if hero_stats_sum >= enemy_stats_sum:
+            for stat in hero.stats:
+                hero.stats[stat] += int(self.stats[stat] / 1.5)
+                hero.exp += int(sigma_func(self.xp / 1000) * (100 - hero.exp) / 10)
+        else:
+            for stat in hero.stats:
+                hero.stats[stat] //= 2
+
+        for stat in hero.stats:
+            engine.notify(f"{stat}: from {old_stat[stat]} to {hero.stats[stat]}")
         engine.notify("****************")
         hero.level_up()
 
