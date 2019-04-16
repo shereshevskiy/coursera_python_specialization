@@ -15,7 +15,7 @@ levels:
     knight: 10
     remove: 3
     chest: 3
-  - !my_special_map  # my map
+  - !my_special_map  # my map with my new enemy and ally
     stairs: 1
     warlock: 3
     healer: 3

@@ -80,7 +80,7 @@ class Hero(Creature):
 
     def level_up(self):
         while self.exp >= 100 * (2 ** (self.level - 1)):
-            yield "level up!"
+            # yield "level up!"
             self.level += 1
             self.stats["strength"] += 2
             self.stats["endurance"] += 2
@@ -96,9 +96,6 @@ class Enemy(Creature, Interactive):
 
     def interact(self, engine, hero):
 
-        def sigma_func(x):
-            return 1 / (1 + np.exp(-x))
-
         engine.notify("The interaction with Enemy")
         engine.notify("   The changes in status:")
         old_stat = hero.stats.copy()
@@ -108,7 +105,7 @@ class Enemy(Creature, Interactive):
         if hero_stats_sum >= enemy_stats_sum:
             for stat in hero.stats:
                 hero.stats[stat] += int(self.stats[stat] / 1.5)
-                hero.exp += int(sigma_func(self.xp / 1000) * (100 - hero.exp) / 10)
+                hero.exp += self.xp
         else:
             for stat in hero.stats:
                 hero.stats[stat] //= 2
