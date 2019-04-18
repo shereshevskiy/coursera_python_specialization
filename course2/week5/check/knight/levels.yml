@@ -1,0 +1,18 @@
+levels:
+  - !empty_map {}
+  - !special_map
+    rat: 10
+    thunderbolt: 3
+  - !special_map
+    rat: 12
+    knight: 5
+    thunderbolt: 5
+  - !special_map
+    rat: 15
+    knight: 15
+    thunderbolt: 10
+  - !special_map
+    rat: 5
+    knight: 20
+    thunderbolt: 20
+  - !random_map {}

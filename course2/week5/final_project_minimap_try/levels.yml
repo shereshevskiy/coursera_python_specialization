@@ -1,0 +1,26 @@
+levels:
+#  - !empty_map  # without walls, one exit (stairs) only
+#    stairs: 1
+#  - !special_map  # there are the random walls, there are the items only which marked here below
+#    stairs: 1
+#    rat: 5
+#    chest: 2
+#  - !special_map
+#    stairs: 1
+#    rat: 10
+#    knight: 5
+#  - !special_map
+#    stairs: 1
+#    rat: 10
+#    knight: 10
+#    remove: 3
+#    chest: 3
+  - !my_special_map  # my map with my new enemy and ally
+    stairs: 1
+    warlock: 3
+    healer: 3
+    rat: 9
+    knight: 4
+    chest: 3
+  - !random_map {}
+  - !end_map {}
