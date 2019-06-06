@@ -9,13 +9,13 @@ def convert(amount, cur_from, cur_to, date, requests):
     soup = BeautifulSoup(response.content, "xml")
 
     def get_nominal(soup, cur):
-        return int(soup.find("CharCode", text=cur).find_next_sibling("Nominal").string)
+        return int(soup.find("CharCode", text=cur).find_next_sibling("Nominal").string) if cur != "RUR" else 1
 
     def get_rate(soup, cur):
         """rate cur_from to rub, rub per cur"""
         raw_rate = Decimal(soup.find("CharCode", text=cur).find_next_sibling("Value").string.replace(",", ".")) \
             if cur != "RUR" else Decimal("1")
-        nominal = get_nominal(soup, cur) if cur != "RUR" else 1
+        nominal = get_nominal(soup, cur)
         return raw_rate / nominal
 
     rate_from = get_rate(soup, cur_from)
