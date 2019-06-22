@@ -1,0 +1,15 @@
+{% for key, value in GET.items %}
+    get {{key}}: {{value}}
+{% endfor %}
+
+{% for key, value in POST.items %}
+    post {{key}}: {{value}}
+{% endfor %}
+
+statement is {{statement}}
+
+<!--{% if META.HTTP_X_PRINT_STATEMENT %}-->
+<!--    statement is {{META.HTTP_X_PRINT_STATEMENT}}-->
+<!--{% else %}-->
+<!--    statement is empty-->
+<!--{% endif %}-->
