@@ -1,4 +1,4 @@
-django==1.11.17
+django==1.11.18
 flask
 PyYAML
 graphics.py

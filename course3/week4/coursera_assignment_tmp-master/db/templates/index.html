@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>db debugging</title>
+</head>
+<p><h3>db tests:</h3></p>
+<p>
+    {% for key, value in db_tests.items %}
+    <li>{{key}}: {{value}}</li>
+    {% endfor %}
+</p>
+
+<p><h3>other tests:</h3></p>
+<p>
+    {% for key, value in other_tests.items %}
+    <li>{{key}}: {{value}}</li>
+    {% endfor %}
+</p>
+</body>
+</html>

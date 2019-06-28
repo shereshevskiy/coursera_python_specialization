@@ -18,4 +18,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     url(r'^routing/', include('routing.urls')),
     url(r'^template/', include('template.urls')),
+    url(r'^db/', include('db.urls'))
 ]
