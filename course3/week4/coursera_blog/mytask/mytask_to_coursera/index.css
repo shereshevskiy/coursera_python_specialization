@@ -1,0 +1,56 @@
+#nav {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 3px solid black;
+}
+
+#cont {
+    margin-top: 20px;
+}
+
+.popular-tags__item {
+    font-size: 150%;
+    color: #000000;
+}
+
+.popular-tags, .best-members {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.input-like {
+  all: unset;
+  -moz-appearance: textfield;
+  width: 3em;
+  text-align: center;
+}
+
+.input-like ::-webkit-inner-spin-button {
+  display: none;
+}
+
+.existing-answer__item {
+    border: 3px solid black; /* Параметры границы */
+    /*background: #fc3; !* Цвет фона *!*/
+    padding: 10px; /* Поля вокруг текста */
+    margin: 20px;
+}
+
+.existing-answer {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.your-answer {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.your-answer__item {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.like {
+    margin-bottom: 10px;
+}
