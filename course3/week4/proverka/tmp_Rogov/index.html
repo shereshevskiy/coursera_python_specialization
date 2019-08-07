@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <script src="{&#39;crossorigin&#39;: &#39;anonymous&#39;, &#39;url&#39;: &#39;https://code.jquery.com/jquery-3.2.1.min.js&#39;, &#39;integrity&#39;: &#39;sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f&#39;}"></script>
+    <script crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+
+    <title>StackOverflow</title>
+
+    <script type="text/javascript">
+    function myTSPlusFunction() {
+        var $price = $(".TSsingleInfo__likeCount");
+        $price.val(parseInt($price.val()) + 1);
+        $price.change();
+    };
+
+    function myTSMinusFunction() {
+        var $price = $(".TSsingleInfo__likeCount");
+        $price.val(parseInt($price.val()) - 1);
+        $price.change();
+    };
+
+    function myAns1PlusFunction() {
+        var $price = $(".Ans1singleInfo__likeCount");
+        $price.val(parseInt($price.val()) + 1);
+        $price.change();
+    };
+
+    function myAns1MinusFunction() {
+        var $price = $(".Ans1singleInfo__likeCount");
+        $price.val(parseInt($price.val()) - 1);
+        $price.change();
+    };
+
+    function myAns2PlusFunction() {
+        var $price = $(".Ans2singleInfo__likeCount");
+        $price.val(parseInt($price.val()) + 1);
+        $price.change();
+    };
+
+    function myAns2MinusFunction() {
+        var $price = $(".Ans2singleInfo__likeCount");
+        $price.val(parseInt($price.val()) - 1);
+        $price.change();
+    };
+    </script>
+</head>
+
+
+<body>
+        <nav class="navigation navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">StackOverflow</a>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Producs</a>
+              </li>
+            </ul>
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Customers</a>
+              </li>
+            </ul>
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Use Cases</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" id="navBarSearchForm" type="search" placeholder="Search" aria-label="Search">
+            </form>
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a href="#" class="login-link s-btn btn-topbar-clear py8 js-gps-track" rel="nofollow" data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
+                <a class="btn btn-primary" href="#" role="button">Sign up</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+
+	    <hr align="center" width="98%" size="3" color="#ff0000">
+
+   <ul>
+        <div class="container1">
+            <div class="col">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card" style="width: 10rem; height: 11rem;">
+                                  <img src="..." class="card-img-top" alt="Avatar">
+                                  <div class="card-body">
+                                    <input class='TSsingleInfo__likeCount' value='0'>
+                                    <button type="button" onclick="myTSPlusFunction()">+</button>
+                                    <button type="button" onclick="myTSMinusFunction()">-</button>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-9">
+                                <h4>Django testing: Got an error with database</h4>
+                                <p>
+                                I have a problem with testing. It's my first time writing tests and I have a problem.
+                                I just created a test folder inside my app users, and test_urls.py for testing the urls.
+                                What does it mean? What happens if I type yes? Do I lose all my data in database?
+                                </p>
+                                <p>Tags: <a href="#">black-jack</a> <a href="#">bender</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr align="center" width=90% size="3" color="#ff0000" />
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card" style="width: 9rem; height: 10rem; margin-left: 1rem;">
+                                  <img src="..." class="card-img-top" alt="Avatar">
+                                  <div class="card-body">
+                                    <input class='Ans1singleInfo__likeCount' value='0'>
+                                    <button type="button" onclick="myAns1PlusFunction()">+</button>
+                                    <button type="button" onclick="myAns1MinusFunction()">-</button>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-8">
+                                <p>
+                                First of all I would like to thank you for the
+                                invitation to participate  in such a ... Russia is the
+                                huge territory which is many respects needs to
+                                be render habitable.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card" style="width: 9rem; height: 10rem; margin-left: 1rem;">
+                                  <img src="..." class="card-img-top" alt="Avatar">
+                                  <div class="card-body">
+                                    <input class='Ans2singleInfo__likeCount' value='0'>
+                                    <button type="button" onclick="myAns2PlusFunction()">+</button>
+                                    <button type="button" onclick="myAns2MinusFunction()">-</button>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-8">
+                                <p>
+                                First of all I would like to thank you for the
+                                invitation to participate  in such a ... Russia is the
+                                huge territory which is many respects needs to
+                                be render habitable.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+
+                         <form>
+                          <div class="form-group">
+                              <label for="exampleFormControlTextarea1"><h4>Your Answer</h4></label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Your Answer Here"></textarea>
+                          </div>
+                        </form>
+
+                        <input class="btn btn-primary" type="submit" value="Post Your Answer">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container2">
+            <div class="col">
+               <div class="row">
+
+                   <div class="col-12">
+
+                        <div class="tags-header">
+                            <h4>Popular Tags</h4>
+                            <p class="pop-tags">coursera python</p>
+                            <p class="pop-tags">mysql django</p>
+                        </div>
+
+                    </div>
+
+                   <div class="col-12">
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                              <h4>Best Members</h4>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><a href="#">Mr. Freeman</a></li>
+                              <li class="list-group-item"><a href="#">Dr. House</a></li>
+                              <li class="list-group-item"><a href="#">Bender</a></li>
+                              <li class="list-group-item"><a href="#">Queen Victoria</a></li>
+                            </ul>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+
+   </ul>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+

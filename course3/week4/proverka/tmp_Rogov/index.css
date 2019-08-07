@@ -1,0 +1,55 @@
+.container1 {
+    width: 66%;
+    float:left;
+}
+
+.container2 {
+    width: 34%;
+    float:left;
+}
+
+#navBarSearchForm {
+    width:600px !important;
+}
+
+.tags-header {
+    margin-left: 20px;
+}
+
+.card-header {
+    background-color: #f7f7f7;
+}
+
+.list-group-item {
+    font-size: 14px;
+}
+
+.card-img-top {
+    background-color: #fdd6d6;
+    height: 7rem;
+}
+
+.TSsingleInfo__likeCount {
+    width: 2rem;
+}
+
+.Ans1singleInfo__likeCount {
+    width: 2rem;
+}
+
+.Ans2singleInfo__likeCount {
+    width: 2rem;
+}
+
+.pop-tags {
+    font-size: 20px;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.col-12 {
+    margin-bottom: 20px;
+}
+
