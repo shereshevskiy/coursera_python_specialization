@@ -1,4 +1,7 @@
+marshmallow
+jsonschema
 django==2.0.13
+# django==1.11.18
 flask
 PyYAML
 graphics.py
