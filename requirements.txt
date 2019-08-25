@@ -1,7 +1,9 @@
+pipenv  #c3w5
 marshmallow
 jsonschema
-django==2.0.13
-# django==1.11.18
+django==2.0.4
+# django==2.0.13
+# django==1.11.23
 flask
 PyYAML
 graphics.py
