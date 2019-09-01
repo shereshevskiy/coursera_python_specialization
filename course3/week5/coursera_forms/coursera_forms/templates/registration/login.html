@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teg form</title>
+</head>
+<body>
+    <h1>Вход</h1>
+
+    {% if next %}
+    <form action="/login/?next={{next}}" method="post">
+        {% else %}
+        <form action="/login/" method="post">
+            {% endif %}
+                {% csrf_token %}
+                {{ form }}
+
+                <input id="submit-btn" type="submit" value="Отправить">
+    </form>
+</body>
+</html>
