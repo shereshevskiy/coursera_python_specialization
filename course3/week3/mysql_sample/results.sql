@@ -1,4 +1,4 @@
-use test;
+	use test;
 set names utf8mb4;
 
 -- 1. Выбрать все товары (все поля)

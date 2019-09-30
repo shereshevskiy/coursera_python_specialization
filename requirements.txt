@@ -1,4 +1,5 @@
-pipenv  #c3w5
+pyTelegramBotAPI  # course 3 week 6
+pipenv  # course 3 week 5
 marshmallow
 jsonschema
 django==2.0.4

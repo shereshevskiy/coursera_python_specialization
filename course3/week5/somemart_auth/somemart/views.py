@@ -44,7 +44,7 @@ class AddItemView(View):
                     login, password = login_password.decode("utf-8").split(":")
                     user = authenticate(username=login, password=password)
 
-                    if user is not None:
+                    if user is not None and user.is_active:
                         if user.is_staff:
                             item = Item.objects.create(title=loaded_data["title"], description=loaded_data["description"],
                                                        price=int(loaded_data["price"]))
