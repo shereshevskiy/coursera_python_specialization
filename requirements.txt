@@ -9,6 +9,7 @@ flask
 PyYAML
 graphics.py
 numpy
+pandas
 jupyter
 pygame
 jupyterlab
