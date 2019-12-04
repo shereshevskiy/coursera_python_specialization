@@ -1,3 +1,6 @@
+tqdm
+geopy
+scipy
 pyTelegramBotAPI  # course 3 week 6
 pipenv  # course 3 week 5
 marshmallow
