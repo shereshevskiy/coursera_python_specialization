@@ -12,4 +12,9 @@ MOSCOW INSTITUTE OF PHYSICS AND TECHNOLOGY
 MAIL.RU GROUP   
 ФРОО   
 
-https://www.coursera.org/specializations/programming-in-python
+#### [Специализация Программирование на Python](https://www.coursera.org/specializations/programming-in-python)
+
+- [Курс 1: Погружение в Python](https://www.coursera.org/learn/diving-in-python/home/welcome)
+- [Курс 2: ООП и паттерны проектирования в Python](https://www.coursera.org/learn/oop-patterns-python/home/welcome)
+- [Курс 3: Создание Web-сервисов на Python](https://www.coursera.org/learn/python-for-web/home/welcome)
+- [Курс 4: Python для анализа данных](https://www.coursera.org/learn/python-for-data-science/home/welcome)
