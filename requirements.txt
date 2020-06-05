@@ -10,7 +10,7 @@ pyTelegramBotAPI  # course 3 week 6
 pipenv  # course 3 week 5
 marshmallow
 jsonschema
-django==2.0.4
+django==2.2.13
 # django==2.0.13
 # django==1.11.23
 flask
